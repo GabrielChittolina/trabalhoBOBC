@@ -43,7 +43,8 @@ begin
   '0' after 19 ns;
 
   resetar <= '1',
-  '0' after 1 ns;
+  '0' after 1 ns,
+  '1' after 12 ns;
 
   somar <= '0',
   '1' after 2 ns;
@@ -53,5 +54,7 @@ begin
   "00001111" after 4 ns,
   "00000000" after 6 ns,
   "10000000" after 8 ns;
+
+  x0: bloco_operacional port map (resetar, somar, CK, valor, overflow, resultado);
 
 end architecture;

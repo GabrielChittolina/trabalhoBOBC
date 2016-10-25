@@ -3,8 +3,10 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity bloco_controle is
-	port(iniciar, CK, reset: in std_logic;
-		pronto, somar, resetar: out std_logic);
+	port(
+		iniciar, CK, reset: in std_logic;
+		pronto, somar, resetar: out std_logic
+	);
 end entity bloco_controle;
 
 architecture bloco_controle_arch of bloco_controle is
