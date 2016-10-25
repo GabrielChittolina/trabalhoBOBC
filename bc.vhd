@@ -1,10 +1,10 @@
-entity trabalho2 is
+entity bloco_controle is
 	port(inicio, CK, reset : in bit;
 			pronto, overflow : out bit);
-end entity trabalho2;
+end entity bloco_controle;
 
 
-architecture trabalho2_arch of trabalho2_arch is
+architecture bloco_controle_arch of bloco_controle_arch is
 
 	type estados is (ini, sum, pronto);
 	signal est : estados;
@@ -42,4 +42,4 @@ begin
 		end if;
 	end process;
 
-end architecture trabalho2_arch;
+end architecture bloco_controle_arch;
