@@ -1,6 +1,6 @@
 entity bloco_controle is
 	port(inicio, CK, reset : in bit;
-			pronto, overflow : out bit);
+		pronto, somar: out bit);
 end entity bloco_controle;
 
 
@@ -8,7 +8,6 @@ architecture bloco_controle_arch of bloco_controle_arch is
 
 	type estados is (ini, sum, pronto);
 	signal est : estados;
-	signal number : bit_vector(7 downto 0);
 	signal counter : bit_vector(1 downto 0);
 
 begin
@@ -25,7 +24,6 @@ begin
 					est <= sum;
 				end if;
 			elsif est = sum then
-				--somar
 				if counter = "00" then
 					coutner <= "01";
 				elsif counter = "01" then
@@ -41,5 +39,17 @@ begin
 
 		end if;
 	end process;
+
+	if est = pronto then
+		pronto <= '1';
+	else
+		pronto <= '0';
+	end if;
+
+	if est = sum then
+		somar <= '1';
+	else
+		somar <= '0';
+	end if;
 
 end architecture bloco_controle_arch;
